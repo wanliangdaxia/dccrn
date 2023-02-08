@@ -1,0 +1,1180 @@
+20:30:02 	 DCCRN(
+  (stft): ConvSTFT()
+  (istft): ConviSTFT()
+  (encoder): ModuleList(
+    (0): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(1, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(1, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (1): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(16, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(16, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (2): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(32, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(32, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (3): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(64, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(64, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (4): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(64, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(64, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (5): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(128, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(128, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+  )
+  (decoder): ModuleList(
+    (0): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(256, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(256, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (1): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(256, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(256, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (2): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(128, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(128, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (3): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(128, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(128, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (4): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(64, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(64, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (5): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(32, 1, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(32, 1, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+    )
+  )
+  (enhance): Sequential(
+    (0): NavieComplexLSTM(
+      (real_lstm): LSTM(512, 128)
+      (imag_lstm): LSTM(512, 128)
+    )
+    (1): NavieComplexLSTM(
+      (real_lstm): LSTM(128, 128)
+      (imag_lstm): LSTM(128, 128)
+    )
+    (2): NavieComplexLSTM(
+      (real_lstm): LSTM(128, 128)
+      (imag_lstm): LSTM(128, 128)
+      (r_trans): Linear(in_features=128, out_features=512, bias=True)
+      (i_trans): Linear(in_features=128, out_features=512, bias=True)
+    )
+  )
+)
+20:30:27 	 DCCRN(
+  (stft): ConvSTFT()
+  (istft): ConviSTFT()
+  (encoder): ModuleList(
+    (0): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(1, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(1, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (1): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(16, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(16, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (2): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(32, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(32, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (3): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(64, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(64, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (4): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(64, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(64, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (5): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(128, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(128, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+  )
+  (decoder): ModuleList(
+    (0): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(256, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(256, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (1): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(256, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(256, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (2): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(128, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(128, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (3): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(128, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(128, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (4): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(64, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(64, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (5): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(32, 1, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(32, 1, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+    )
+  )
+  (enhance): Sequential(
+    (0): NavieComplexLSTM(
+      (real_lstm): LSTM(512, 128)
+      (imag_lstm): LSTM(512, 128)
+    )
+    (1): NavieComplexLSTM(
+      (real_lstm): LSTM(128, 128)
+      (imag_lstm): LSTM(128, 128)
+    )
+    (2): NavieComplexLSTM(
+      (real_lstm): LSTM(128, 128)
+      (imag_lstm): LSTM(128, 128)
+      (r_trans): Linear(in_features=128, out_features=512, bias=True)
+      (i_trans): Linear(in_features=128, out_features=512, bias=True)
+    )
+  )
+)
+20:30:55 	 DCCRN(
+  (stft): ConvSTFT()
+  (istft): ConviSTFT()
+  (encoder): ModuleList(
+    (0): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(1, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(1, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (1): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(16, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(16, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (2): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(32, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(32, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (3): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(64, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(64, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (4): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(64, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(64, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (5): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(128, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(128, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+  )
+  (decoder): ModuleList(
+    (0): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(256, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(256, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (1): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(256, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(256, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (2): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(128, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(128, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (3): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(128, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(128, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (4): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(64, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(64, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (5): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(32, 1, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(32, 1, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+    )
+  )
+  (enhance): Sequential(
+    (0): NavieComplexLSTM(
+      (real_lstm): LSTM(512, 128)
+      (imag_lstm): LSTM(512, 128)
+    )
+    (1): NavieComplexLSTM(
+      (real_lstm): LSTM(128, 128)
+      (imag_lstm): LSTM(128, 128)
+    )
+    (2): NavieComplexLSTM(
+      (real_lstm): LSTM(128, 128)
+      (imag_lstm): LSTM(128, 128)
+      (r_trans): Linear(in_features=128, out_features=512, bias=True)
+      (i_trans): Linear(in_features=128, out_features=512, bias=True)
+    )
+  )
+)
+20:32:42 	 DCCRN(
+  (stft): ConvSTFT()
+  (istft): ConviSTFT()
+  (encoder): ModuleList(
+    (0): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(1, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(1, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (1): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(16, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(16, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (2): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(32, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(32, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (3): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(64, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(64, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (4): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(64, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(64, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (5): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(128, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(128, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+  )
+  (decoder): ModuleList(
+    (0): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(256, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(256, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (1): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(256, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(256, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (2): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(128, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(128, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (3): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(128, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(128, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (4): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(64, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(64, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (5): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(32, 1, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(32, 1, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+    )
+  )
+  (enhance): Sequential(
+    (0): NavieComplexLSTM(
+      (real_lstm): LSTM(512, 128)
+      (imag_lstm): LSTM(512, 128)
+    )
+    (1): NavieComplexLSTM(
+      (real_lstm): LSTM(128, 128)
+      (imag_lstm): LSTM(128, 128)
+    )
+    (2): NavieComplexLSTM(
+      (real_lstm): LSTM(128, 128)
+      (imag_lstm): LSTM(128, 128)
+      (r_trans): Linear(in_features=128, out_features=512, bias=True)
+      (i_trans): Linear(in_features=128, out_features=512, bias=True)
+    )
+  )
+)
+20:34:33 	 DCCRN(
+  (stft): ConvSTFT()
+  (istft): ConviSTFT()
+  (encoder): ModuleList(
+    (0): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(1, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(1, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (1): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(16, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(16, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (2): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(32, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(32, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (3): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(64, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(64, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (4): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(64, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(64, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (5): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(128, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(128, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+  )
+  (decoder): ModuleList(
+    (0): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(256, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(256, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (1): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(256, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(256, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (2): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(128, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(128, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (3): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(128, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(128, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (4): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(64, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(64, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (5): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(32, 1, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(32, 1, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+    )
+  )
+  (enhance): Sequential(
+    (0): NavieComplexLSTM(
+      (real_lstm): LSTM(512, 128)
+      (imag_lstm): LSTM(512, 128)
+    )
+    (1): NavieComplexLSTM(
+      (real_lstm): LSTM(128, 128)
+      (imag_lstm): LSTM(128, 128)
+    )
+    (2): NavieComplexLSTM(
+      (real_lstm): LSTM(128, 128)
+      (imag_lstm): LSTM(128, 128)
+      (r_trans): Linear(in_features=128, out_features=512, bias=True)
+      (i_trans): Linear(in_features=128, out_features=512, bias=True)
+    )
+  )
+)
+20:46:26 	 DCCRN(
+  (stft): ConvSTFT()
+  (istft): ConviSTFT()
+  (encoder): ModuleList(
+    (0): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(1, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(1, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (1): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(16, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(16, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (2): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(32, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(32, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (3): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(64, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(64, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (4): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(64, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(64, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (5): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(128, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(128, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+  )
+  (decoder): ModuleList(
+    (0): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(256, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(256, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (1): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(256, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(256, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (2): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(128, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(128, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (3): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(128, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(128, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (4): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(64, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(64, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (5): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(32, 1, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(32, 1, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+    )
+  )
+  (enhance): Sequential(
+    (0): NavieComplexLSTM(
+      (real_lstm): LSTM(512, 128)
+      (imag_lstm): LSTM(512, 128)
+    )
+    (1): NavieComplexLSTM(
+      (real_lstm): LSTM(128, 128)
+      (imag_lstm): LSTM(128, 128)
+    )
+    (2): NavieComplexLSTM(
+      (real_lstm): LSTM(128, 128)
+      (imag_lstm): LSTM(128, 128)
+      (r_trans): Linear(in_features=128, out_features=512, bias=True)
+      (i_trans): Linear(in_features=128, out_features=512, bias=True)
+    )
+  )
+)
+22:16:17 	 DCCRN(
+  (stft): ConvSTFT()
+  (istft): ConviSTFT()
+  (encoder): ModuleList(
+    (0): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(1, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(1, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (1): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(16, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(16, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (2): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(32, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(32, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (3): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(64, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(64, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (4): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(64, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(64, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (5): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(128, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(128, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+  )
+  (decoder): ModuleList(
+    (0): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(256, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(256, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (1): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(256, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(256, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (2): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(128, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(128, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (3): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(128, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(128, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (4): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(64, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(64, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (5): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(32, 1, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(32, 1, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+    )
+  )
+  (enhance): Sequential(
+    (0): NavieComplexLSTM(
+      (real_lstm): LSTM(512, 128)
+      (imag_lstm): LSTM(512, 128)
+    )
+    (1): NavieComplexLSTM(
+      (real_lstm): LSTM(128, 128)
+      (imag_lstm): LSTM(128, 128)
+    )
+    (2): NavieComplexLSTM(
+      (real_lstm): LSTM(128, 128)
+      (imag_lstm): LSTM(128, 128)
+      (r_trans): Linear(in_features=128, out_features=512, bias=True)
+      (i_trans): Linear(in_features=128, out_features=512, bias=True)
+    )
+  )
+)
+22:18:22 	 DCCRN(
+  (stft): ConvSTFT()
+  (istft): ConviSTFT()
+  (encoder): ModuleList(
+    (0): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(1, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(1, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (1): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(16, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(16, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (2): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(32, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(32, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (3): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(64, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(64, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (4): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(64, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(64, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (5): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(128, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(128, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+  )
+  (decoder): ModuleList(
+    (0): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(256, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(256, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (1): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(256, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(256, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (2): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(128, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(128, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (3): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(128, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(128, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (4): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(64, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(64, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (5): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(32, 1, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(32, 1, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+    )
+  )
+  (enhance): Sequential(
+    (0): NavieComplexLSTM(
+      (real_lstm): LSTM(512, 128)
+      (imag_lstm): LSTM(512, 128)
+    )
+    (1): NavieComplexLSTM(
+      (real_lstm): LSTM(128, 128)
+      (imag_lstm): LSTM(128, 128)
+    )
+    (2): NavieComplexLSTM(
+      (real_lstm): LSTM(128, 128)
+      (imag_lstm): LSTM(128, 128)
+      (r_trans): Linear(in_features=128, out_features=512, bias=True)
+      (i_trans): Linear(in_features=128, out_features=512, bias=True)
+    )
+  )
+)
+22:29:30 	 DCCRN(
+  (stft): ConvSTFT()
+  (istft): ConviSTFT()
+  (encoder): ModuleList(
+    (0): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(1, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(1, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (1): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(16, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(16, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (2): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(32, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(32, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (3): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(64, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(64, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (4): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(64, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(64, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (5): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(128, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(128, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+  )
+  (decoder): ModuleList(
+    (0): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(256, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(256, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (1): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(256, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(256, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (2): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(128, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(128, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (3): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(128, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(128, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (4): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(64, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(64, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (5): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(32, 1, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(32, 1, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+    )
+  )
+  (enhance): Sequential(
+    (0): NavieComplexLSTM(
+      (real_lstm): LSTM(512, 128)
+      (imag_lstm): LSTM(512, 128)
+    )
+    (1): NavieComplexLSTM(
+      (real_lstm): LSTM(128, 128)
+      (imag_lstm): LSTM(128, 128)
+    )
+    (2): NavieComplexLSTM(
+      (real_lstm): LSTM(128, 128)
+      (imag_lstm): LSTM(128, 128)
+      (r_trans): Linear(in_features=128, out_features=512, bias=True)
+      (i_trans): Linear(in_features=128, out_features=512, bias=True)
+    )
+  )
+)
+22:33:06 	 DCCRN(
+  (stft): ConvSTFT()
+  (istft): ConviSTFT()
+  (encoder): ModuleList(
+    (0): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(1, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(1, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (1): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(16, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(16, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (2): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(32, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(32, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (3): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(64, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(64, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (4): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(64, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(64, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (5): Sequential(
+      (0): ComplexConv2d(
+        (real_conv): Conv2d(128, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+        (imag_conv): Conv2d(128, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+  )
+  (decoder): ModuleList(
+    (0): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(256, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(256, 128, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (1): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(256, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(256, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (2): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(128, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(128, 64, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (3): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(128, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(128, 32, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (4): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(64, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(64, 16, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+      (1): ComplexBatchNorm(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): PReLU(num_parameters=1)
+    )
+    (5): Sequential(
+      (0): ComplexConvTranspose2d(
+        (real_conv): ConvTranspose2d(32, 1, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+        (imag_conv): ConvTranspose2d(32, 1, kernel_size=(5, 2), stride=(2, 1), padding=(2, 0), output_padding=(1, 0))
+      )
+    )
+  )
+  (enhance): Sequential(
+    (0): NavieComplexLSTM(
+      (real_lstm): LSTM(512, 128)
+      (imag_lstm): LSTM(512, 128)
+    )
+    (1): NavieComplexLSTM(
+      (real_lstm): LSTM(128, 128)
+      (imag_lstm): LSTM(128, 128)
+    )
+    (2): NavieComplexLSTM(
+      (real_lstm): LSTM(128, 128)
+      (imag_lstm): LSTM(128, 128)
+      (r_trans): Linear(in_features=128, out_features=512, bias=True)
+      (i_trans): Linear(in_features=128, out_features=512, bias=True)
+    )
+  )
+)
